@@ -1,78 +1,83 @@
 # Organoids Roadmap
 
 **Planning snapshot:** 14 November 2026  
-**Ordering:** evidence and architectural integrity before feature expansion.
+**Ordering:** architectural contracts and evidence before feature expansion.
 
 ## Phase 1: Establish the real baseline
 
 - [ ] Inspect current `accretion.html`.
 - [ ] Locate and classify `emergence.js`.
 - [ ] Establish the canonical source-of-truth arrangement.
-- [ ] Inventory all current primitives and consumers.
+- [ ] Inventory current primitives, consumers and duplicated mechanisms.
 - [ ] Record exact character and non-whitespace counts.
-- [ ] Identify test commands, test coverage and current CI state.
+- [ ] Identify test commands, coverage and current CI state.
 - [ ] Run a baseline runtime smoke test.
 
-**Exit condition:** a source-backed inventory with reproducible measurements and a verified baseline.
+**Exit condition:** source-backed inventory with reproducible measurements and verified baseline.
 
-## Phase 2: Reconcile feature implementation
+## Phase 2: Specify and map the substrate
 
-- [ ] Map each feature in FEATURES.md to source locations.
-- [ ] Label each as implemented, partial, planned, obsolete or unverified.
-- [ ] Map tests to features.
-- [ ] Identify duplicated mechanisms and incompatible data contracts.
-- [ ] Correct documentation to reflect actual implementation.
+- [ ] Map the consolidated architecture in ARCHITECTURE.md to source.
+- [ ] Verify GolfCore's exact primitive list and byte count.
+- [ ] Define the minimal entity header and payload contract.
+- [ ] Implement/map generic state containers, relationships and lifecycle ownership.
+- [ ] Define local, shared, derived and transient state semantics.
+- [ ] Specify atomic transformation and validation behaviour.
+- [ ] Map the recommended rule model; resolve snapshot, ordering, event and commit semantics.
+- [ ] Define quantity-specific tolerances and accounting.
+- [ ] Define module contracts and dependency direction.
 
-**Exit condition:** no feature is described as complete without implementation and verification evidence.
+**Exit condition:** every foundational contract is precise, source-mapped and independently testable. Recommended rule semantics are explicitly confirmed or revised before being treated as final.
 
 ## Phase 3: Consolidation and abstraction
 
-Continue the requested consolidation programme, including the four-area consolidation work and subsequent assessments.
+Continue the requested consolidation programme.
 
-Focus areas:
-- [ ] Semantic interoperability.
-- [ ] Modularisation opportunities.
-- [ ] Primitive generalisation.
-- [ ] Universal abstraction where genuinely useful.
-- [ ] Simplification and removal of redundant representations.
-- [ ] Shared contracts across physics, fields, constraints and energy.
-- [ ] Declarative rule reuse.
-- [ ] Elimination of competing implementations.
+- [ ] Compare repeated mechanisms by semantic equivalence.
+- [ ] Generalise primitives only where reuse is demonstrated.
+- [ ] Preserve specialised policies and domain meaning.
+- [ ] Consolidate state, relation, transformation and evaluation mechanisms where contracts genuinely match.
+- [ ] Establish stable module interfaces and remove accidental coupling.
+- [ ] Eliminate redundant representations and competing implementations.
+- [ ] Test local behaviour and cross-module interoperability.
 
-For every pass, publish the changes and before/after character counts, including non-whitespace counts.
+For every pass, publish actual changes and before/after character counts, including non-whitespace counts.
 
-**Exit condition:** measurable reduction in duplication/complexity without semantic regressions.
+**Exit condition:** measurable reduction in duplication/complexity without semantic regressions or loss of domain meaning.
 
-## Phase 4: Stabilise the substrate
+## Phase 4: Stabilise replaceable modules
 
-- [ ] Specify GolfCore's exact contract.
-- [ ] Specify the canonical entity/composition representation.
-- [ ] Specify shared interaction and transformation semantics.
-- [ ] Specify rule evaluation and state transition contracts.
-- [ ] Add tests for each primitive and cross-module interoperability.
-- [ ] Verify deterministic or explicitly stochastic behaviour as appropriate.
+- [ ] Establish independently testable physics module.
+- [ ] Establish independently testable chemistry module.
+- [ ] Establish independently testable biology module.
+- [ ] Verify each module can be replaced behind its contract.
+- [ ] Verify shared entities, state, relations, units and transformations interoperate.
+- [ ] Test bounded numerical error and declared tolerances.
+- [ ] Test deterministic scheduling and seeded stochastic behaviour.
 
-**Exit condition:** stable, tested primitives that can support higher-order organisation.
+**Exit condition:** modules are independently testable and replaceable without hidden shared assumptions.
 
 ## Phase 5: Demonstrate emergence
 
 - [ ] Demonstrate particle-level interactions.
 - [ ] Demonstrate formation of structures and compounds.
 - [ ] Demonstrate protocell-like organisation.
-- [ ] Demonstrate higher-order organism/colony organisation.
-- [ ] Record the mechanisms and rules responsible for each transition.
-- [ ] Test that emergence is produced by the general substrate rather than a hidden scripted shortcut.
+- [ ] Investigate organism/colony organisation.
+- [ ] Record causal mechanisms and lineage.
+- [ ] Run seeded, perturbed and intervention experiments.
+- [ ] Define blind evaluation metrics before examining outcomes.
+- [ ] Preserve and analyse unexpected emergent outcomes.
 
-**Exit condition:** reproducible demonstrations of the intended emergence ladder.
+**Exit condition:** reproducible evidence that higher-order behaviour arises from the general substrate rather than hidden scripted outcomes.
 
 ## Phase 6: Delivery and maintenance
 
-- [ ] Confirm CI on the current authoritative branch.
-- [ ] Run runtime and regression checks.
+- [ ] Confirm CI on the authoritative branch.
+- [ ] Run regression and runtime checks.
 - [ ] Document setup and execution.
-- [ ] Keep feature and status documents current.
-- [ ] Record each completed consolidation pass and its measurements.
+- [ ] Keep feature, architecture and status documents current.
+- [ ] Record completed consolidation passes and measurements.
 
 ## Priority rule
 
-Do not expand the feature catalogue merely to make it longer. First make the existing substrate smaller, more general, interoperable and verifiably correct. Add higher-order capabilities when the substrate can express them cleanly.
+Do not expand the feature catalogue merely to make it longer. First make the substrate smaller, more general, interoperable and verifiably correct. Add higher-order capabilities when the substrate expresses them cleanly.
