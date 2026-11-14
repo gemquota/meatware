@@ -27,7 +27,7 @@
 - [ ] Define quantity-specific tolerances and accounting.
 - [ ] Define module contracts and dependency direction.
 
-**Exit condition:** every foundational contract is precise, source-mapped and independently testable. Recommended rule semantics are explicitly confirmed or revised before being treated as final.
+**Exit condition:** every foundational contract is precise, source-mapped and independently testable. Confirmed rule semantics are specified precisely before implementation is considered stable.
 
 ## Phase 3: Consolidation and abstraction
 
