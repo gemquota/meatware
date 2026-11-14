@@ -7,7 +7,7 @@
 
 Organoids is in architectural consolidation and foundational implementation. The architectural direction is now substantially clearer: a minimal universal GolfCore, generic entities with extensible payloads, relationship/lifecycle-based state ownership, atomic transformations, approximate physical conservation, specialised domain policies on universal primitives, replaceable modules and systematic emergence testing.
 
-The rules model has a recommended resolution but remains provisional pending explicit confirmation. The consolidated specification is documented; this does not establish that the current source implements it.
+The rules model was subsequently approved and is now a confirmed architectural decision. The consolidated specification is documented; this does not establish that the current source implements it.
 
 ## 2. Historical source measurements
 
@@ -55,7 +55,7 @@ The nine-question review produced the following user-confirmed decisions:
 | GolfCore | Minimal universal execution kernel: entities, state, relations, operations; higher-level behaviour as composable data | Confirmed |
 | Entity schema | Minimal common header plus extensible, composable payloads | Confirmed |
 | State ownership | Generic containers and relationship-based ownership, governed by lifecycle | Confirmed; D and E reconciled |
-| Rules | User selected Other and requested explanation; lightweight hybrid proposed | Provisional recommendation |
+| Rules | Lightweight hybrid: declarative data, shared evaluator, event triggers where reliable, deterministic conflict phases; rules become entities only when lifecycle/identity/state is needed | Confirmed after user approval |
 | Transformations | Constraints, validation and atomic commits | Confirmed |
 | Conservation | Approximate conservation prioritising emergence and performance | Confirmed |
 | Universalisation | Universal primitives, specialised policies; generalise after demonstrated reuse | Confirmed; B/D/E reconciled |
@@ -90,7 +90,7 @@ This list distinguishes discussion and documentation from verified merged implem
 | GolfCore conceptual contract | Specified; source mapping outstanding |
 | Canonical entity model | Specified; source mapping outstanding |
 | State ownership/lifecycle | Specified; source mapping outstanding |
-| Rule execution | Recommended model; user confirmation and implementation contract outstanding |
+| Rule execution | Model confirmed; detailed snapshot, ordering, conflict, event and commit semantics still need implementation specification |
 | Atomic transformations | Specified; source mapping outstanding |
 | Approximate conservation | Policy selected; tolerances and accounting outstanding |
 | Universal primitives/specialised policies | Specified; reuse evidence outstanding |
@@ -121,7 +121,7 @@ This list distinguishes discussion and documentation from verified merged implem
 4. Re-run character and non-whitespace measurements with documented counting.
 5. Map every specification item to source locations and tests.
 6. Define exact GolfCore operations and verify the byte target.
-7. Resolve the provisional rule model's execution semantics.
+7. Specify the confirmed rule model's snapshot, ordering, conflict, event and commit semantics.
 8. Run tests and report actual results.
 9. Run the simulation and perform a runtime smoke test.
 10. Update status from source and test evidence.
