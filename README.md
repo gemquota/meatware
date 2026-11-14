@@ -14,6 +14,7 @@ The project is being developed from a deliberately golfed minimal core. The core
 - [Architecture](docs/organoids/ARCHITECTURE.md): substrate, entities, state, rules, modules and emergence.
 - [Consolidated specification](docs/organoids/SPECIFICATION.md): the coherent architecture derived from the nine decision areas and confirmed rule model.
 - [Source audit](docs/organoids/SOURCE_AUDIT.md): verified state of the live Organoids repository and discrepancies against historical measurements.
+- [Execution semantics](docs/organoids/EXECUTION_SEMANTICS.md): rule snapshots, phases, atomic effects, conflict handling, events and reproducibility.
 - [Decisions and constraints](docs/organoids/DECISIONS.md): authoritative project boundaries and design decisions.
 - [Roadmap](docs/organoids/ROADMAP.md): ordered work programme and acceptance criteria.
 
