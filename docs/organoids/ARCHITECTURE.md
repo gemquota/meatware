@@ -1,106 +1,148 @@
 # Organoids Architecture
 
-**Status:** intended architecture reconstructed from project discussion; implementation mapping pending source verification.
+**Status:** consolidated target architecture; implementation mapping remains pending source verification.
+**Decision basis:** user-confirmed selections from the nine-question architecture review, 14 November 2026.
 
 ## 1. Architectural objective
 
-Create one coherent substrate capable of representing and evolving multiple levels of organisation. Avoid separate, bespoke systems for particles, compounds, cells, organisms and colonies when common primitives can express them.
+Build one compact, composable substrate capable of representing and evolving multiple levels of organisation. Avoid bespoke systems for particles, compounds, cells, organisms and colonies where shared semantics genuinely apply.
 
-## 2. Conceptual layers
+The governing principle is: **universal primitives, specialised policies, and abstraction justified by demonstrated semantic reuse.**
 
-### A. Minimal functional core
+## 2. GolfCore: minimal universal execution kernel
 
-GolfCore is the minimal foundational mechanism, with an approximately 600–700-byte target/philosophy. It should establish the smallest useful set of operations and contracts from which the rest of the system can be composed.
+GolfCore is the smallest useful execution substrate, with an approximately 600–700-byte design target/philosophy. The target is a constraint and design instrument, not permission to omit necessary semantics or cram domain logic into the kernel.
 
-The target is not a mandate to cram all functionality into the core. Higher-level capabilities should remain composable extensions.
+The kernel's conceptual vocabulary is:
+- **Entities:** identifiable participants in the system.
+- **State:** values associated with entities or shared contexts.
+- **Relations:** links expressing ownership, reference, composition, dependency or interaction.
+- **Operations:** the minimal generic means to inspect and transform state and relations.
 
-### B. Entity and composition model
+Everything else should be expressed as composable data and higher-level operations built on this substrate. Physics, chemistry, biology, rendering, observation and domain-specific policies are not intrinsic GolfCore responsibilities.
 
-A unified entity/composition model should provide a common representation for the things participating in the simulation.
+The exact primitive list and byte count must be established from the authoritative implementation, not inferred from this conceptual contract.
 
-The model should support:
-- Identity and state.
-- Composition from smaller entities or components.
-- Relationships and interactions.
-- State transitions.
-- Reuse across physical, chemical and biological contexts.
+## 3. Canonical entity model
 
-Exact fields and storage representation require confirmation against `accretion.html`.
+Use a **minimal common header plus extensible, composable payloads**.
 
-### C. Shared physical substrate
+The common header should contain only fields required for universal identity and addressing. Domain-specific properties belong in payloads/components or referenced state containers. Composition must not require a privileged organism hierarchy: particles, structures, compounds, cells and colonies should be representable through the same entity and relation machinery.
 
-Physics, fields, constraints and energy engines should be general mechanisms shared by entities and structures.
+Payloads may be specialised, nested or shared. Their interpretation is defined by stable contracts, not by expanding the universal header every time a new domain appears.
 
-Avoid implementing separate physics engines for each emergent level unless a demonstrated semantic or performance requirement justifies it.
+## 4. State ownership and lifecycle
 
-### D. Declarative rules
+Use generic state containers and relationships as the representation model, with lifecycle-based ownership as the governing policy. These are complementary decisions, not competing schemas.
 
-Chemical and biological behaviour should be expressed through declarative rules operating on shared representations.
+- **Local/intrinsic state:** owned by the entity whose identity and lifecycle it describes.
+- **Shared/global state:** owned by a shared context, field or explicitly shared container; entities reference it rather than duplicating it.
+- **Derived state:** computed from authoritative state and dependencies; it is cacheable but must not silently become a second source of truth.
+- **Transient state:** scoped to an operation, evaluation or simulation step and discarded when its lifecycle ends.
 
-Rules should describe conditions, interactions and transformations rather than hard-code every possible structure or organism.
+Ownership follows relationships and lifetime, not a hard-coded list of entity classes. A field may own environmental state; an engine may calculate derived values; neither should become an implicit owner of unrelated intrinsic entity state.
 
-### E. Emergent organisation
+Derived values need identifiable inputs and invalidation/recomputation rules. Shared state needs explicit ownership and access semantics. Avoid global mutable state merely because it is convenient.
 
-Higher-order structures should arise from lower-level entities and rules:
+## 5. Rules and execution semantics
+
+**Status:** recommended resolution for the user's unanswered rule-model question; not yet explicitly confirmed.
+
+Use a lightweight hybrid:
+1. Rules are primarily declarative data describing conditions, operations/effects, constraints and optional scheduling metadata.
+2. A shared evaluator interprets those descriptions.
+3. Event-triggered evaluation is available where dependencies are known and reliable.
+4. Deterministic phases or priorities resolve conflicts and operations that require ordering.
+5. Domain modules may provide specialised predicates/effects through contracts without changing GolfCore.
+6. Rules become full entities only when they need independent identity, lifecycle, state or relationships.
+
+Do not require every rule to be an entity. Do not make every operation event-driven. Do not rely on unspecified iteration order.
+
+The execution contract must eventually define: when rules observe state, whether effects read a snapshot or earlier effects, how conflicts are resolved, when commits occur, how events are queued/coalesced, and how seeded stochastic choices remain reproducible.
+
+## 6. Safe composition and transformation
+
+Combine constraints, validation and atomic commits:
+- Check preconditions, type/shape compatibility and domain constraints before mutation.
+- Stage proposed changes separately from authoritative state.
+- Commit a valid change as one logical operation.
+- Reject invalid changes without leaving partial mutations.
+- Make postconditions and emitted events explicit.
+- Keep domain-specific validity policies outside GolfCore.
+
+Transactions or rollback may be implementation techniques, but the externally visible contract is atomic success or no change.
+
+## 7. Physical quantities and conservation
+
+The selected policy is **approximate conservation**, prioritising emergent behaviour and performance over strict conservation in every subsystem.
+
+This is not permission for unbounded numerical drift. Domain modules should declare relevant quantities, tolerances, numerical assumptions and meaningful sources/sinks. Track errors where they materially affect interpretation. Apply stricter invariants selectively when a mechanism requires them; do not impose a universal energy-only accounting model on unrelated quantities.
+
+## 8. Universal primitives and specialised policies
+
+Use universal primitives with specialised policies and extensions. Generalise a mechanism after demonstrating semantic reuse across multiple domains. Broad universalisation is an exploration goal, not a mandate to flatten distinct meanings.
+
+Examples:
+- A shared transformation mechanism may support reactions, growth and structural change.
+- Chemistry, biology and physics retain their own validity rules and interpretations.
+- A common relation representation does not imply every relation has identical semantics.
+- Similar-looking code is not sufficient evidence for a shared abstraction; the invariant meaning must match.
+
+Prefer the smallest abstraction that captures the proven common semantics. Keep specialised behaviour behind stable extension contracts.
+
+## 9. Module boundaries
+
+Support independently replaceable physics, chemistry and biology modules, while defining actual boundaries by stable contracts and independent testability.
+
+Use the smallest independently testable primitive as the starting unit. Combine primitives into modules only when a real responsibility, lifecycle or contract boundary exists. Do not split code merely to create folders, nor fuse independent responsibilities merely to reduce file count.
+
+The shared kernel and contracts should allow alternative domain implementations without changing unrelated modules. Interoperability means agreement on identity, state, relations, units, constraints, operation semantics and lifecycle, not simply the ability to call another module's functions.
+
+## 10. Emergence: observation and tests
+
+Use all of the following while making minimal assumptions about what valid emergence looks like:
+- Statistical measurements of populations, structures, diversity and distributions.
+- Seeded reproducible experiments.
+- Perturbation experiments.
+- Intervention tests that remove or alter mechanisms.
+- Blind tests with metrics defined before observing outcomes.
+- Causal histories, event traces and lineage tracking.
+
+Metrics should characterise outcomes rather than encode a required organism, shape, population curve or evolutionary endpoint. Distinguish observation from optimisation targets. Preserve unexpected outcomes for analysis rather than automatically classifying them as failures.
+
+## 11. Conceptual emergence ladder
+
+The intended progression remains:
 
 `particles → structures → compounds → protocells → organisms → colonies`
 
-Each transition should be explainable through shared composition, interactions, constraints, energy and rule evaluation.
+This is a research trajectory, not a scripted sequence or a requirement that every run produce every stage. Each transition should be attributable to interactions, composition, constraints, energy/resource flows and rule evaluation on the shared substrate.
 
-## 3. Interoperability requirements
+## 12. Consolidation and implementation strategy
 
-Modules should agree on:
-- Entity identity and references.
-- State representation.
-- Units and numerical conventions.
-- Field and constraint semantics.
-- Interaction and transformation contracts.
-- Lifecycle and ownership rules.
-- Event/observation semantics where used.
+For each candidate abstraction:
+1. Identify implementations and consumers.
+2. Compare semantics, not just syntax.
+3. Identify the true invariant.
+4. Define the smallest shared primitive or contract.
+5. Keep domain-specific policies specialised.
+6. Migrate consumers and remove obsolete duplication.
+7. Test local behaviour and cross-module interoperability.
+8. Measure source size and complexity before/after.
 
-A module is not truly interoperable merely because it can call another module's function. It must interpret shared data in the same way.
+Golfing remains a design instrument: compress repetition, remove redundant state and simplify control paths. Do not sacrifice correctness, inspectability, reproducibility or stable contracts for a smaller character count.
 
-## 4. Consolidation strategy
+## 13. Source-of-truth policy
 
-For each repeated mechanism:
+Project discussion identifies `accretion.html` as the central artifact. The relationship to historical `emergence.js` still requires source-level reconciliation. The intended end state is one coherent architecture, not competing implementations.
 
-1. Find all implementations and consumers.
-2. Identify the invariant semantics.
-3. Define the smallest general primitive that preserves those semantics.
-4. Move consumers to the shared primitive.
-5. Remove obsolete duplication.
-6. Test old and new behaviour.
-7. Measure the result.
+## 14. Open implementation questions
 
-Prefer abstractions that eliminate multiple kinds of duplication at once. Avoid abstraction layers that merely rename a single-use function or add indirection without improving semantic reuse.
-
-## 5. Golfing strategy
-
-Golfing is a design instrument:
-- Compress repeated syntax and operations.
-- Generalise repeated structures.
-- Remove redundant state.
-- Reduce unnecessary control paths.
-- Prefer compositional rules over special cases.
-
-Do not optimise character count at the expense of correctness, determinism where required, debuggability or a stable contract. Record both raw and non-whitespace character counts.
-
-## 6. Source-of-truth policy
-
-Project discussion names `accretion.html` as the central artifact. The relationship to historical `emergence.js` must be resolved explicitly.
-
-The desired end state is a single coherent architecture, not two competing implementations. Historical code may inform analysis, but should not silently become a dependency or parallel source of truth.
-
-## 7. Open architecture questions
-
-- What exact operations constitute GolfCore?
-- What is the canonical entity schema?
-- Which state belongs to entities versus shared fields or engines?
-- How are rules represented, evaluated and ordered?
-- How are transformations and composition made safe?
-- What are the invariants for energy and physical quantities?
-- Which mechanisms are genuinely universal and which should remain specialised?
-- What is the smallest useful module boundary?
-- How is emergence observed and tested without encoding the desired outcome?
-
-Resolve these questions by inspecting the current source and tests, not by inventing a schema from this document.
+- Exact GolfCore primitive list and verified byte count.
+- Exact minimal entity header and payload encoding.
+- Concrete ownership/reference representation and derived-state invalidation.
+- Rule snapshot, conflict, phase, event and commit semantics.
+- Numerical tolerances and accounting policy by physical quantity.
+- Module contracts and dependency direction.
+- Reproducibility and observability implementation.
+- Mapping of this specification to current source and tests.
