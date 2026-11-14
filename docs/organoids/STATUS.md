@@ -1,7 +1,7 @@
 # Organoids Project Status
 
 **Status snapshot:** 14 November 2026  
-**Source confidence:** reconstructed from project conversation and reported measurements; current repository/source was not independently inspected for this documentation update.
+**Source confidence:** live `gemquota/organoids` `main` tree and `accretion.html` were statically inspected on 14 November 2026; runtime and test execution remain unverified.
 
 ## 1. Executive status
 
@@ -30,7 +30,7 @@ A separate comparison exposed a major estimate/measurement discrepancy:
 
 The actual was approximately 17.4 times the estimate. The 12,350-character figure is a separate reported measurement; do not assume it is the sum of the artifact rows above without confirming scope and counting method.
 
-## 3. Artifact lineage
+## 3. Live source audit (14 November 2026)\n\nThe current `gemquota/organoids` `main` tree contains exactly one tracked file, `accretion.html`. Its live content measures **976 characters / 942 non-whitespace characters** (976 bytes; ASCII). It creates 800 canvas particles, applies randomised pairwise attraction/repulsion, merges close particles using mass-weighted position and velocity, and renders them. It is a compact particle prototype, not yet the specified generic substrate. No tests, package manifests, module directories or CI workflow files appear in the inspected tree. See [SOURCE_AUDIT.md](SOURCE_AUDIT.md) for the full inventory and capability mapping.\n\nThe live measurement differs from the historical 3,179 / 3,087 report; these are different snapshots or scopes and must not be conflated.\n\n## 4. Artifact lineage
 
 ### `accretion.html`
 
@@ -81,7 +81,7 @@ The nine-question review produced the following user-confirmed decisions:
 
 This list distinguishes discussion and documentation from verified merged implementation. No source code, tests or runtime behaviour were changed or verified by this documentation update.
 
-## 6. Current completion assessment
+## 7. Current completion assessment
 
 | Area | Current assessment |
 |---|---|
@@ -90,18 +90,18 @@ This list distinguishes discussion and documentation from verified merged implem
 | GolfCore conceptual contract | Specified; source mapping outstanding |
 | Canonical entity model | Specified; source mapping outstanding |
 | State ownership/lifecycle | Specified; source mapping outstanding |
-| Rule execution | Model confirmed; detailed snapshot, ordering, conflict, event and commit semantics still need implementation specification |
+| Rule execution | Hybrid model confirmed; proposed detailed contract documented in EXECUTION_SEMANTICS.md |
 | Atomic transformations | Specified; source mapping outstanding |
 | Approximate conservation | Policy selected; tolerances and accounting outstanding |
 | Universal primitives/specialised policies | Specified; reuse evidence outstanding |
 | Replaceable module boundaries | Specified; implementation outstanding/unverified |
 | Emergence test strategy | Specified; implementation outstanding/unverified |
-| Current source reconciliation | Outstanding |
+| Current source reconciliation | Initial static audit complete; full source-to-contract mapping outstanding |
 | Current tests and CI | Unverified |
 | Runtime smoke test | Unverified |
-| Current measured size baseline | Outstanding |
+| Current measured size baseline | Live baseline established: 976 / 942 for accretion.html |
 
-## 7. Immediate risks
+## 8. Immediate risks
 
 1. Competing or overlapping artifacts: `emergence.js` and `accretion.html`.
 2. Measurement ambiguity around the 12,350-character shared-substrate figure.
@@ -113,7 +113,7 @@ This list distinguishes discussion and documentation from verified merged implem
 8. Modules can appear modular while retaining hidden representation or lifecycle assumptions.
 9. Scope contamination from related projects.
 
-## 8. Next verification actions
+## 9. Next verification actions
 
 1. Inspect current authoritative `accretion.html`.
 2. Establish whether `emergence.js` is active, superseded or historical reference.
@@ -126,7 +126,7 @@ This list distinguishes discussion and documentation from verified merged implem
 9. Run the simulation and perform a runtime smoke test.
 10. Update status from source and test evidence.
 
-## 9. Reporting rule
+## 10. Reporting rule
 
 Every consolidation report must include pass number/scope, actual changes, features/primitives consolidated, semantic effects, tests/results, before/after character counts, before/after non-whitespace counts, regressions and unresolved work.
 
