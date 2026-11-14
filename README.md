@@ -11,7 +11,8 @@ The project is being developed from a deliberately golfed minimal core. The core
 - [Project overview](docs/organoids/PROJECT.md): purpose, scope, lineage and governing principles.
 - [Feature catalogue](docs/organoids/FEATURES.md): feature inventory, grouped by capability and implementation confidence.
 - [Project status](docs/organoids/STATUS.md): measured artifacts, completed work, current state, risks and verification gaps.
-- [Architecture](docs/organoids/ARCHITECTURE.md): substrate, entities, physics, fields, rules and emergence.
+- [Architecture](docs/organoids/ARCHITECTURE.md): substrate, entities, state, rules, modules and emergence.
+- [Consolidated specification](docs/organoids/SPECIFICATION.md): the coherent architecture derived from the nine decision areas, including explicit provisional decisions.
 - [Decisions and constraints](docs/organoids/DECISIONS.md): authoritative project boundaries and design decisions.
 - [Roadmap](docs/organoids/ROADMAP.md): ordered work programme and acceptance criteria.
 
