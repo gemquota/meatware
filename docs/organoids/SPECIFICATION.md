@@ -33,7 +33,7 @@ This reconciles the user's state choices D and E: E is the generic representatio
 
 **Confirmed decision:** a lightweight hybrid. Rules are declarative data interpreted by a shared evaluator. Trigger them from relevant events when dependencies are known; use deterministic phases/priorities where conflicts require ordering. Domain modules supply specialised predicates/effects. Rules become entities only when they need identity, lifecycle, independent state or relationships.
 
-Before implementation is considered stable, define read snapshots, effect ordering, conflict resolution, event queue semantics, commit timing and reproducible stochastic choices.
+The concrete execution defaults are specified in [EXECUTION_SEMANTICS.md](EXECUTION_SEMANTICS.md): per-rule snapshots, staged atomic effects, deterministic ordering, explicit conflict rejection, phase-boundary event queues and seeded randomness.
 
 ## 5. Transformations
 
