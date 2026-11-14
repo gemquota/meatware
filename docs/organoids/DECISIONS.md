@@ -2,7 +2,7 @@
 
 **Last consolidated:** 14 November 2026
 
-This document records the project boundaries that should govern future implementation and documentation.
+This document records project boundaries and architecture decisions. A decision marked **recommended** resolves an unanswered question provisionally; it is not represented as a user-confirmed choice.
 
 ## Identity and lineage
 
@@ -20,25 +20,31 @@ This document records the project boundaries that should govern future implement
 9. Boids-related concepts may only be independently re-expressed where they fit Organoids' own architecture.
 10. Mocean and NEXUS Aquarium remain separate projects.
 
-## Architecture
+## Confirmed architecture decisions
 
-11. Prefer a unified entity/composition model.
-12. Prefer shared physics, fields, constraints and energy engines.
-13. Prefer declarative chemical and biological rules.
-14. Build higher-order organisation through emergence and composition.
-15. Prioritise semantic interoperability, modularisation and reusable primitives.
-16. Consolidate before adding redundant specialised mechanisms.
-17. Keep the minimal core small while allowing higher-level modules to remain expressive.
+11. **GolfCore:** minimal universal execution kernel comprising entities, state, relations and operations; higher-level functionality is composable data.
+12. **Entity schema:** minimal common header plus extensible, composable payloads.
+13. **State model:** generic state containers and relationship-determined ownership, governed by lifecycle. Intrinsic state remains local; shared/global state is shared; derived state is recomputed; transient state expires with its operation/step.
+14. **Transformations:** combine constraints, validation and atomic commits. Invalid transformations must not leave partial state.
+15. **Physical invariants:** approximate conservation is preferred to strict conservation everywhere, prioritising emergence and performance. Numerical drift must still be bounded and meaningful sources/sinks and tolerances made observable.
+16. **Universalisation:** universal primitives with specialised policies/extensions; generalise mechanisms after demonstrated semantic reuse across multiple domains.
+17. **Modules:** support replaceable physics, chemistry and biology modules, but define boundaries by stable contracts and independent testability. Start with the smallest independently testable primitive and combine only where a real boundary exists.
+18. **Emergence testing:** use statistical observation, seeded experiments, perturbations, interventions, blind tests and causal/lineage histories, with minimal assumptions about valid outcomes.
+
+## Recommended resolution, awaiting explicit confirmation
+
+19. **Rules:** use a lightweight hybrid of declarative data, shared evaluation, event-triggered evaluation where dependencies are known, and deterministic phases/priorities for conflicts. Rules are data by default and become entities only when they need identity, lifecycle, state or relationships.
+20. The rule execution contract must specify read snapshots, effect ordering, conflict resolution, event handling, commit timing and reproducible stochastic behaviour before implementation is considered stable.
 
 ## Engineering and reporting
 
-18. Estimates and measurements must be labelled separately.
-19. Preserve both total and non-whitespace character counts.
-20. Every consolidation pass must include before/after counts.
-21. A feature is not complete merely because it has been proposed, discussed or documented.
-22. Report tests and runtime verification accurately.
-23. Keep unresolved questions visible instead of silently choosing an unsupported implementation.
+21. Estimates and measurements must be labelled separately.
+22. Preserve both total and non-whitespace character counts.
+23. Every consolidation pass must include before/after counts.
+24. A feature is not complete merely because it has been proposed, discussed or documented.
+25. Report tests and runtime verification accurately.
+26. Keep unresolved questions visible instead of silently choosing an unsupported implementation.
 
 ## Change control
 
-When a proposed change conflicts with these decisions, stop and reconcile the conflict before implementing it. In particular, do not solve a missing Organoids capability by importing another project's implementation.
+When a proposed change conflicts with these decisions, reconcile the conflict before implementing it. Do not solve a missing Organoids capability by importing another project's implementation.
