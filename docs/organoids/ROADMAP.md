@@ -18,12 +18,12 @@
 ## Phase 2: Specify and map the substrate
 
 - [ ] Map the consolidated architecture in ARCHITECTURE.md to source.
-- [ ] Verify GolfCore's exact primitive list and byte count.
+- [x] Verify the initial GolfCore primitive slice and byte count (677 characters / 669 non-whitespace on draft PR #2).\n- [ ] Review/merge the foundational PR after browser/runtime verification.
 - [ ] Define the minimal entity header and payload contract.
-- [ ] Implement/map generic state containers, relationships and lifecycle ownership.
+- [ ] Implement generic state containers and lifecycle ownership (generic entities/relations are prototyped on draft PR #2).
 - [ ] Define local, shared, derived and transient state semantics.
 - [ ] Specify atomic transformation and validation behaviour.
-- [ ] Map the recommended rule model; resolve snapshot, ordering, event and commit semantics.
+- [x] Prototype declarative rules, per-rule snapshots, deterministic phase/priority order and atomic staged commits (draft PR #2).\n- [ ] Implement event queues, event-triggered activation and seeded randomness.
 - [ ] Define quantity-specific tolerances and accounting.
 - [ ] Define module contracts and dependency direction.
 
