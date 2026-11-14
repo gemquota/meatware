@@ -46,7 +46,7 @@ Derived values need identifiable inputs and invalidation/recomputation rules. Sh
 
 ## 5. Rules and execution semantics
 
-**Status:** recommended resolution for the user's unanswered rule-model question; not yet explicitly confirmed.
+**Status:** confirmed by the user on 14 November 2026.
 
 Use a lightweight hybrid:
 1. Rules are primarily declarative data describing conditions, operations/effects, constraints and optional scheduling metadata.
