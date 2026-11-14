@@ -33,7 +33,7 @@ This catalogue separates intended capabilities from implementation evidence. A f
 - Specialised domain predicates and effects behind stable contracts.
 - Rules promoted to entities only when they need identity, lifecycle or independent state.
 
-**Status:** the hybrid model is confirmed. Exact snapshot, ordering, conflict, event and commit semantics remain to be implemented and verified. Exact snapshot, ordering, conflict, event and commit semantics remain unverified.
+**Status:** the hybrid model is confirmed. Proposed per-rule snapshots, staged atomic effects, deterministic ordering, conflict rejection, phase-boundary events and seeded randomness are specified in EXECUTION_SEMANTICS.md; implementation and tests remain outstanding. Exact snapshot, ordering, conflict, event and commit semantics remain unverified.
 
 ## 3. Physics and interactions
 
@@ -45,7 +45,7 @@ This catalogue separates intended capabilities from implementation evidence. A f
 - Approximate conservation with declared tolerances and meaningful sources/sinks.
 - Reusable interaction mechanisms rather than per-species physics.
 
-**Evidence:** shared physics and field mechanisms are design scope. Numerical models, solver completeness, tolerances and runtime behaviour are unverified.
+**Live source:** a simple particle interaction/merge loop exists in accretion.html. The specified replaceable physics module, numerical tolerances and diagnostics are not implemented.
 
 ## 4. Chemistry and transformation
 
