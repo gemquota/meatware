@@ -2,7 +2,7 @@
 
 **Snapshot:** 14 November 2026
 
-This catalogue separates the intended feature set from implementation evidence. A feature appearing here does not automatically mean it exists in working code.
+This catalogue separates intended capabilities from implementation evidence. A feature appearing here does not automatically mean it exists in working code.
 
 ### Status vocabulary
 
@@ -16,102 +16,108 @@ This catalogue separates the intended feature set from implementation evidence. 
 
 | Capability | Description | Evidence status |
 |---|---|---|
-| GolfCore | Minimal functional foundation, approximately 600–700 bytes as a design target/philosophy | Design scope |
-| Entity representation | Unified representation for simulation entities | Design scope |
-| Composition model | Entities/structures composed from common primitives | Design scope |
+| GolfCore | Minimal universal execution kernel: entities, state, relations and operations; higher-level behaviour expressed as composable data | Design scope |
+| Entity representation | Minimal common header with extensible, composable payloads | Design scope |
+| State containers | Generic state representation with ownership determined by relationships and lifecycle | Design scope |
+| State lifecycles | Local/intrinsic, shared/global, derived and transient state semantics | Design scope |
+| Relations | Generic links for identity references, ownership, composition, dependency and interaction | Design scope |
+| Transformations | Constraints, validation and atomic commit/reject | Design scope |
 | Shared substrate | Common mechanisms rather than isolated feature implementations | Design scope; size discrepancy measured |
-| Fields | Shared environmental or interaction fields | Design scope |
-| Constraints | General constraints applicable across entity types | Design scope |
-| Energy engines | Shared energy-related mechanisms | Design scope |
-| Interoperable modules | Modules sharing compatible semantics and representations | Design scope |
 
-## 2. Physics and interactions
+## 2. Rules and execution
 
+- Declarative rule data describing conditions, operations/effects and constraints.
+- Shared rule evaluator.
+- Event-triggered evaluation where dependencies are explicit.
+- Deterministic phases/priorities for conflict resolution.
+- Specialised domain predicates and effects behind stable contracts.
+- Rules promoted to entities only when they need identity, lifecycle or independent state.
+
+**Status:** the hybrid model is a recommended resolution awaiting explicit confirmation. Exact snapshot, ordering, conflict, event and commit semantics remain unverified.
+
+## 3. Physics and interactions
+
+- Independently replaceable physics module.
+- Shared fields and constraints.
 - Particle-level representation and interaction.
-- Shared physics mechanisms.
-- Density, pressure and other interaction properties where required by the chosen physical model.
-- Fields that influence entity behaviour and state.
-- Constraints governing interactions and permitted transformations.
-- Energy transfer and transformation mechanisms.
-- Reusable interaction rules rather than per-species physics.
+- Density, pressure and other interaction properties where required by the physical model.
+- Energy/resource transfer and transformation.
+- Approximate conservation with declared tolerances and meaningful sources/sinks.
+- Reusable interaction mechanisms rather than per-species physics.
 
-**Evidence:** physics, fields, constraints and energy engines have been identified as shared architectural capabilities. Current numerical models, solver completeness and runtime behaviour are unverified.
+**Evidence:** shared physics and field mechanisms are design scope. Numerical models, solver completeness, tolerances and runtime behaviour are unverified.
 
-## 3. Chemistry and transformation
+## 4. Chemistry and transformation
 
-- Declarative chemical rules.
+- Independently replaceable chemistry module.
+- Declarative chemical policies and reaction descriptions.
 - General transformation/reaction mechanisms.
 - Composition and decomposition.
 - Interaction-driven formation of more complex structures.
-- Reusable rules for state transitions.
-- Shared substrate support for non-living and living structures.
+- Domain-specific constraints implemented on shared transformation contracts.
 
-**Evidence:** declarative chemical and biological rules were part of the previously stated feature scope. Specific reaction catalogues and tested reaction behaviour are unverified.
+**Evidence:** chemistry and declarative rules are design scope. Specific reaction catalogues and tested reaction behaviour are unverified.
 
-## 4. Biological emergence
+## 5. Biological emergence
 
+- Independently replaceable biology module.
 - Emergence from particles into structures.
 - Compound and protocell formation.
-- Organism-like organisation.
-- Colony formation.
+- Organism-like and colony organisation.
 - Self-organisation through local interactions.
-- Growth and structural change.
-- Reproduction and propagation as higher-order mechanisms.
-- Life-like behaviour arising from shared rules.
+- Growth, structural change, reproduction and propagation as higher-order mechanisms.
+- Life-like behaviour arising from shared rules and specialised biological policies.
 
-**Evidence:** particle-to-protocell-to-colony emergence is established design scope. The completeness of each stage is not verified.
+**Evidence:** particle-to-protocell-to-colony emergence is design scope. Completeness of each stage is not verified.
 
-## 5. Higher-order behaviour and ecology
+## 6. Universal mechanisms and specialised policies
 
-The architecture is intended to permit:
-- Autonomous behaviour arising from entity state and interactions.
-- Competition and cooperation.
-- Resource and energy relationships.
-- Population-level dynamics.
-- Adaptation through changing structures or rules.
-- Interactions between organisms and their environment.
+- Shared primitives for identity, state, relations, composition, transformation and execution.
+- Specialised physics, chemistry and biology policies.
+- Abstraction based on demonstrated semantic reuse, not superficial code similarity.
+- Stable contracts that permit domain modules to be independently tested and replaced.
 
-These are capability targets, not a verified checklist of finished simulation features. Detailed ecology, genetics, neural control and population mechanics must be added only where supported by the Organoids architecture and independently implemented.
+This is the governing design principle, not proof that all mechanisms have already been consolidated.
 
-## 6. Observability and verification
+## 7. Emergence observability and verification
 
-- Tests for foundational primitives.
-- Tests for composition and interoperability.
-- Tests for transformation and emergence.
-- Runtime inspection of simulation state.
-- Measured source-size reporting.
-- Before/after character counts for consolidation work.
-- Regression checks after abstraction changes.
+- Statistical measurements of populations, structures, diversity and distributions.
+- Seeded reproducible experiments.
+- Perturbation experiments.
+- Intervention tests removing or changing mechanisms.
+- Blind emergence tests with predefined metrics and no encoded target outcome.
+- Causal histories, event traces and lineage tracking.
+- Regression and interoperability tests.
+- Runtime inspection and measured source-size reporting.
 
-Tests and documentation artifacts were included in the historical size measurements, but their present contents and coverage have not been independently inspected.
+**Evidence:** these are agreed design requirements. Current test coverage and implementation are unverified.
 
-## 7. Engineering and delivery
+## 8. Engineering and delivery
 
 - Single coherent implementation.
-- Consolidation of overlapping mechanisms.
+- Consolidation of semantically equivalent mechanisms.
 - Progressive golfing and abstraction.
-- Feature documentation.
+- Stable module contracts.
 - Automated tests and CI.
 - Runtime verification.
 - Reproducible measurements.
+- Before/after total and non-whitespace character counts for every consolidation pass.
 
-A prior project summary reported a feature branch with CI passing. That historical report must not be treated as confirmation of the current branch or current CI state.
-
-## 8. Explicit exclusions
+## 9. Explicit exclusions
 
 - Real-world biological organoid development or experimentation.
 - Importing Boids implementation, source, dependencies or code.
 - Folding Mocean or NEXUS Aquarium into this repository.
 - Treating conceptual discussion as proof of implementation.
-- Adding specialised subsystems when an existing general primitive can express the behaviour.
+- Forcing superficially similar but semantically distinct mechanisms into one abstraction.
 
-## 9. Feature completion rule
+## 10. Feature completion rule
 
 A feature should only be marked **complete** when:
 1. Its implementation exists in the authoritative source.
 2. Its contract and semantics are documented.
 3. Relevant tests pass.
 4. Integration with the shared substrate is demonstrated.
-5. Any runtime-dependent behaviour has been smoke-tested.
+5. Runtime-dependent behaviour has been smoke-tested.
 
 Until then, retain the appropriate weaker status.
