@@ -5,15 +5,15 @@
 
 ## Phase 1: Establish the real baseline
 
-- [ ] Inspect current `accretion.html`.
+- [x] Inspect current `accretion.html` (static source audit completed; 976 characters / 942 non-whitespace).
 - [ ] Locate and classify `emergence.js`.
-- [ ] Establish the canonical source-of-truth arrangement.
+- [x] Confirm `gemquota/organoids` `main` contains only `accretion.html`; treat it as the live source baseline pending any undisclosed local work.
 - [ ] Inventory current primitives, consumers and duplicated mechanisms.
-- [ ] Record exact character and non-whitespace counts.
+- [x] Record live character and non-whitespace counts.
 - [ ] Identify test commands, coverage and current CI state.
 - [ ] Run a baseline runtime smoke test.
 
-**Exit condition:** source-backed inventory with reproducible measurements and verified baseline.
+**Exit condition:** source-backed inventory with reproducible measurements and verified baseline. Static inventory and size baseline are complete; runtime/test baseline remains open.
 
 ## Phase 2: Specify and map the substrate
 
