@@ -31,9 +31,9 @@ This document records project boundaries and architecture decisions. A decision 
 17. **Modules:** support replaceable physics, chemistry and biology modules, but define boundaries by stable contracts and independent testability. Start with the smallest independently testable primitive and combine only where a real boundary exists.
 18. **Emergence testing:** use statistical observation, seeded experiments, perturbations, interventions, blind tests and causal/lineage histories, with minimal assumptions about valid outcomes.
 
-## Recommended resolution, awaiting explicit confirmation
+## Confirmed rule and execution decisions
 
-19. **Rules:** use a lightweight hybrid of declarative data, shared evaluation, event-triggered evaluation where dependencies are known, and deterministic phases/priorities for conflicts. Rules are data by default and become entities only when they need identity, lifecycle, state or relationships.
+19. **Rules:** use a lightweight hybrid of declarative data, shared evaluation, event-triggered evaluation where dependencies are known, and deterministic phases/priorities for conflicts. Rules are data by default and become entities only when they need identity, lifecycle, state or relationships. The user explicitly approved this recommendation on 14 November 2026.
 20. The rule execution contract must specify read snapshots, effect ordering, conflict resolution, event handling, commit timing and reproducible stochastic behaviour before implementation is considered stable.
 
 ## Engineering and reporting
