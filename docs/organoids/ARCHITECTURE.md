@@ -58,7 +58,7 @@ Use a lightweight hybrid:
 
 Do not require every rule to be an entity. Do not make every operation event-driven. Do not rely on unspecified iteration order.
 
-The execution contract must eventually define: when rules observe state, whether effects read a snapshot or earlier effects, how conflicts are resolved, when commits occur, how events are queued/coalesced, and how seeded stochastic choices remain reproducible.
+The concrete proposed defaults are specified in [EXECUTION_SEMANTICS.md](EXECUTION_SEMANTICS.md): per-rule snapshots, staged atomic effects, deterministic phase/priority/order, explicit conflict rejection, phase-boundary event queues and seeded randomness. Treat these as the implementation contract unless a later test or measured requirement demonstrates a necessary revision.
 
 ## 6. Safe composition and transformation
 
