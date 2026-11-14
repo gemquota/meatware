@@ -33,7 +33,7 @@ This catalogue separates intended capabilities from implementation evidence. A f
 - Specialised domain predicates and effects behind stable contracts.
 - Rules promoted to entities only when they need identity, lifecycle or independent state.
 
-**Status:** the hybrid model is a recommended resolution awaiting explicit confirmation. Exact snapshot, ordering, conflict, event and commit semantics remain unverified.
+**Status:** the hybrid model is confirmed. Exact snapshot, ordering, conflict, event and commit semantics remain to be implemented and verified. Exact snapshot, ordering, conflict, event and commit semantics remain unverified.
 
 ## 3. Physics and interactions
 
