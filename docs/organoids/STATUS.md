@@ -87,17 +87,17 @@ This list distinguishes discussion and documentation from verified merged implem
 |---|---|
 | Project identity and lineage | Established |
 | Boids implementation exclusion | Explicit constraint |
-| GolfCore conceptual contract | Specified; source mapping outstanding |
-| Canonical entity model | Specified; source mapping outstanding |
-| State ownership/lifecycle | Specified; source mapping outstanding |
-| Rule execution | Hybrid model confirmed; proposed detailed contract documented in EXECUTION_SEMANTICS.md |
-| Atomic transformations | Specified; source mapping outstanding |
+| GolfCore conceptual contract | Specified; 677-character prototype on draft PR #2 |
+| Canonical entity model | Minimal header/payload prototype on draft PR #2; full ownership model outstanding |
+| State ownership/lifecycle | Specification complete; implementation outstanding |
+| Rule execution | Declarative predicate/effect prototype and deterministic phases/priorities on draft PR #2; event semantics outstanding |
+| Atomic transformations | Staged atomic commit/reject prototype and seven passing kernel tests on draft PR #2 |
 | Approximate conservation | Policy selected; tolerances and accounting outstanding |
 | Universal primitives/specialised policies | Specified; reuse evidence outstanding |
 | Replaceable module boundaries | Specified; implementation outstanding/unverified |
 | Emergence test strategy | Specified; implementation outstanding/unverified |
 | Current source reconciliation | Initial static audit complete; full source-to-contract mapping outstanding |
-| Current tests and CI | Unverified |
+| Current tests and CI | 7 GolfCore tests pass on PR branch; CI configuration absent/unverified |
 | Runtime smoke test | Unverified |
 | Current measured size baseline | Live baseline established: 976 / 942 for accretion.html |
 
