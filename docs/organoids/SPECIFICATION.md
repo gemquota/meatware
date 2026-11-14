@@ -1,7 +1,7 @@
 # Organoids Consolidated Architecture Specification
 
 **Date:** 14 November 2026  
-**Authority:** consolidated from the user's nine architectural selections. The rule model is explicitly provisional.
+**Authority:** consolidated from the user's nine architectural selections and subsequent explicit approval of the proposed rule model.
 
 ## Executive model
 
@@ -31,7 +31,7 @@ This reconciles the user's state choices D and E: E is the generic representatio
 
 ## 4. Rules
 
-**Provisional recommendation, not yet user-confirmed:** a lightweight hybrid. Rules are declarative data interpreted by a shared evaluator. Trigger them from relevant events when dependencies are known; use deterministic phases/priorities where conflicts require ordering. Domain modules supply specialised predicates/effects. Rules become entities only when they need identity, lifecycle, independent state or relationships.
+**Confirmed decision:** a lightweight hybrid. Rules are declarative data interpreted by a shared evaluator. Trigger them from relevant events when dependencies are known; use deterministic phases/priorities where conflicts require ordering. Domain modules supply specialised predicates/effects. Rules become entities only when they need identity, lifecycle, independent state or relationships.
 
 Before implementation is considered stable, define read snapshots, effect ordering, conflict resolution, event queue semantics, commit timing and reproducible stochastic choices.
 
