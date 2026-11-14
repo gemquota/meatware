@@ -17,11 +17,11 @@ This catalogue separates intended capabilities from implementation evidence. A f
 | Capability | Description | Evidence status |
 |---|---|---|
 | GolfCore | Minimal universal execution kernel: entities, state, relations and operations; higher-level behaviour expressed as composable data | Design scope |
-| Entity representation | Minimal common header with extensible, composable payloads | Design scope |
-| State containers | Generic state representation with ownership determined by relationships and lifecycle | Design scope |
+| Entity representation | Minimal common header with extensible, composable payloads | Prototype on draft PR #2 |
+| State containers | Generic state representation with ownership determined by relationships and lifecycle | Design scope; not yet implemented |
 | State lifecycles | Local/intrinsic, shared/global, derived and transient state semantics | Design scope |
-| Relations | Generic links for identity references, ownership, composition, dependency and interaction | Design scope |
-| Transformations | Constraints, validation and atomic commit/reject | Design scope |
+| Relations | Generic links for identity references, ownership, composition, dependency and interaction | Basic generic relation list prototyped; ownership semantics outstanding |
+| Transformations | Constraints, validation and atomic commit/reject | Basic staged atomic commit/reject prototyped; full domain constraints outstanding |
 | Shared substrate | Common mechanisms rather than isolated feature implementations | Design scope; size discrepancy measured |
 
 ## 2. Rules and execution
@@ -33,7 +33,7 @@ This catalogue separates intended capabilities from implementation evidence. A f
 - Specialised domain predicates and effects behind stable contracts.
 - Rules promoted to entities only when they need identity, lifecycle or independent state.
 
-**Status:** the hybrid model is confirmed. Proposed per-rule snapshots, staged atomic effects, deterministic ordering, conflict rejection, phase-boundary events and seeded randomness are specified in EXECUTION_SEMANTICS.md; implementation and tests remain outstanding. Exact snapshot, ordering, conflict, event and commit semantics remain unverified.
+**Status:** hybrid rule kernel prototyped on draft PR #2: predicate/effect registries, per-rule snapshots, deterministic phase/priority/registration order and staged atomic commits. Event queues and seeded randomness remain outstanding. Seven kernel tests pass. Exact snapshot, ordering, conflict, event and commit semantics remain unverified.
 
 ## 3. Physics and interactions
 
@@ -90,7 +90,7 @@ This is the governing design principle, not proof that all mechanisms have alrea
 - Regression and interoperability tests.
 - Runtime inspection and measured source-size reporting.
 
-**Evidence:** these are agreed design requirements. Current test coverage and implementation are unverified.
+**Evidence:** seven GolfCore unit tests are present on draft PR #2. Statistical emergence experiments, browser/runtime tests and the wider verification programme remain unimplemented.
 
 ## 8. Engineering and delivery
 
